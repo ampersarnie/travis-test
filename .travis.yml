@@ -30,4 +30,5 @@ jobs:
       draft: true
       overwrite: true
       on:
-        repo: bigbitecreative/benenson
+        repo: ampersarnie/travis-test
+
