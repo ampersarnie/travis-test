@@ -9,6 +9,8 @@ before_install:
 jobs:
   include:
   - stage: master-build
+    before_install:
+    - chmod +x ./bin/push.sh
     script:
     - "./bin/push.sh"
     if: branch = master
