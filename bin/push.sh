@@ -7,11 +7,13 @@ setup_git() {
 
 commit_files() {
   git add --all
+  git add -f style.css
+  git add -f bundle.js
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 }
 
 upload_files() {
-  git remote add origin-pages https://${GH_TOKEN}@github.com/ampersarnie/travis-test.git > /dev/null 2>&1
+  git remote add origin-pages https://${GH_TOKEN}@github.com/ampersarnie/travis-test.git
   git push --quiet --set-upstream origin-pages develop-build
 }
 
