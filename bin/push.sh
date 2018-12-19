@@ -14,7 +14,8 @@ commit_files() {
 
 upload_files() {
   git remote add origin-pages https://${GH_TOKEN}@github.com/ampersarnie/travis-test.git
-  git push --quiet --set-upstream origin-pages develop-build
+  git show-ref
+  git push origin-pages HEAD:develop-build --force
 }
 
 yarn && yarn build
