@@ -6,39 +6,10 @@ cache:
   - "./node_modules"
 before_install:
 - yarn
-env:
-  global:
-    secure:
 jobs:
   include:
-  - stage: lint
-    php: 5.6
-    script:
-    - "./bin/lint.sh"
-  - stage: lint
-    php: 7.2
-    script:
-    - "./bin/lint.sh"
-  - stage: deploy
-    php: 7.2
-    script:
-    - "./bin/build.sh"
-    if: branch = master
-    deploy:
-      provider: releases
-      file: "../benenson.zip"
-      skip_cleanup: true
-      draft: true
-      overwrite: true
-      on:
-        tags: true
-        repo: ampersarnie/travis-test
   - stage: master-build
-    php: 7.2
     script:
     - "./bin/push.sh"
     if: branch = master
-    deploy:
-      provider: branch
-      skip_cleanup: true
 
